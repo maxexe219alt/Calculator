@@ -1,41 +1,54 @@
-# Compiled Lua sources
-luac.out
+@ECHO OFF
+TITLE CALCULATOR BY MAX_EXE219ALT
+:MAIN
+ECHO =========================================
+ECHO =============SIMPLE CALCULATOR============
+ECHO 1. PRESS A FOR ADDITION
+ECHO 2. PRESS B FOR SUBTRACTION
+ECHO 3. PRESS C FOR MULTIPLICATION
+ECHO 4. PRESS D FOR DIVISION
+ECHO 5. PRESS E FOR EXIT
+ECHO ==========================================
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+SET /p X="PRESS SELECT ONE OF THE OPTION FROM ABOVE: "
+IF %X%==E goto:EXIT
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
+SET /p V="ENTER THE FIRST VALUE: "
+SET /p N="ENTER THE SECOND VALUE: "
 
-# Precompiled Headers
-*.gch
-*.pch
+IF %X%==A goto:ADD
+IF %X%==B goto:SUB
+IF %X%==C goto:MUL
+IF %X%==D goto:DIV
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+:ADD
+SET /A M=%V%
+SET /A K=%N%
+SET /A SUM=%M%+%K%
+ECHO THE SUM OF TWO NUMBER IS: %SUM%
+goto:MAIN
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+:SUB
+SET /A M=%V%
+SET /A K=%N%
+SET /A DIF=%M%-%K%
+ECHO THE DIFF OF TWO NUMBER IS: %DIF%
+goto:MAIN
 
+:MUL
+SET /A M=%V%
+SET /A K=%N%
+SET /A MULT=%M%*%K%
+ECHO THE MULTIPLICATION OF TWO NUMBER IS: %MULT%
+goto:MAIN
+
+:DIV
+SET /A M=%V%
+SET /A K=%N%
+SET /A DIVS=%M%/%K%
+ECHO THE DIVISION OF TWO NUMBER IS: %DIVS%
+goto:MAIN
+
+:EXIT
+PAUSE
